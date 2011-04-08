@@ -1,27 +1,33 @@
 # Disable extended filename globbing
 unsetopt extendedglob
 
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+autoload colors; colors;
+# Setup the prompt with pretty colors
+setopt prompt_subst
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="robbyrussell"
+# get the name of the branch we are on
+function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+parse_git_dirty () {
+  gitstat=$(git status 2>/dev/null | grep '\(# Untracked\|# Changes\|# Changed but not updated:\)')
 
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+  if [[ $(echo ${gitstat} | grep -c "^# Changes to be committed:\|# Changed but not updated:\$") > 0 ]]; then
+	echo -n "$ZSH_THEME_GIT_PROMPT_DIRTY"
+	return
+  fi
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+  if [[ $(echo ${gitstat} | grep -c "^\(# Untracked files:\)$") > 0 ]]; then
+	echo -n "$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+	return
+  fi
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails cap gem ruby)
-
-source $ZSH/oh-my-zsh.sh
+  if [[ $(echo ${gitstat} | grep -v '^$' | wc -l | tr -d ' ') == 0 ]]; then
+	echo -n "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
+}
 
 function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
