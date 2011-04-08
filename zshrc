@@ -1,6 +1,8 @@
 # Disable extended filename globbing
 unsetopt extendedglob
 
+source "$HOME/.zsh/aliases.sh"
+
 autoload colors; colors;
 # Setup the prompt with pretty colors
 setopt prompt_subst
@@ -49,12 +51,6 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$fg_bold[green]%}✓%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✓%{$reset_color%}"
 
 . "/etc/zsh_command_not_found"
-
-alias gg='gitg &'
-alias gs='git stash'
-alias gsp='git stash pop'
-alias mag='cd ~/code/magexpert'
-alias magpro='cd ~/code/magexpert-pro'
 
 bindkey "5C" forward-word
 bindkey "5D" backward-word
