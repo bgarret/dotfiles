@@ -1,0 +1,14 @@
+**~
+.project
+.settings
+.buildpath
+.externalToolBuilders
+.pydevproject
+*.bak
+.mailmap
+*.pyc
+nbproject/
+.rake_tasks
+.redcar
+*.swp
+*.swo

@@ -1,0 +1,19 @@
+[user]
+	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+[push]
+	default = tracking
+[merge]
+	tool = meld
+[core]
+	excludesfile = <%= ENV['HOME'] %>/.git/ignore
+	fileMode = false
+	whitespace = blank-at-eof
+[branch]
+	autosetuprebase = always
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	s = status --short
