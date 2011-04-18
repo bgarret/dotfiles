@@ -69,6 +69,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
+  set ts=2 sts=2 sw=2 noet
+
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
   autocmd FileType ruby,yaml set ai sw=2 sts=2 et
