@@ -8,3 +8,5 @@ compdef _git gp=git-push
 alias gg='gitg &'
 alias gs='git stash'
 alias gsp='git stash pop'
+alias nano="vim"
+alias restartapp="touch tmp/restart.txt"
