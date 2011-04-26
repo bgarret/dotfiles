@@ -36,6 +36,4 @@ bindkey "5D" backward-word
 export EDITOR="vim"
 export GEM_OPEN_EDITOR="redcar"
 
-[[ -s $HOME/.screeninator/scripts/screeninator ]] && . "$HOME/.screeninator/scripts/screeninator"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
