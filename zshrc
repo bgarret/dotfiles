@@ -37,3 +37,6 @@ export EDITOR="vim"
 export GEM_OPEN_EDITOR="redcar"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Parse .rvmrc when opening a new terminal
+cd .
