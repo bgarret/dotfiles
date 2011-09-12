@@ -14,3 +14,4 @@ nbproject/
 *.swp
 *.swo
 Guardfile
+.cap_tasks
