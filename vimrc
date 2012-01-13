@@ -19,6 +19,13 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set laststatus=2
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+
+cnoreabbrev e CommandT
+cnoreabbrev b CommandTBuffer
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
