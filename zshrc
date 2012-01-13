@@ -1,6 +1,10 @@
 # Disable extended filename globbing
 unsetopt extendedglob
 
+# Arch Linux doesn't autoload the completion by default
+autoload -U compinit
+compinit
+
 source "$HOME/.zsh/aliases.sh"
 source "$HOME/.zsh/git.sh"
 
@@ -28,10 +32,14 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$fg_bold[green]%}✓%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✓%{$reset_color%}"
 
-. "/etc/zsh_command_not_found"
+# Arch Linux  doesn't source this by default
+. "/etc/profile"
 
-bindkey "5C" forward-word
-bindkey "5D" backward-word
+# bind special keys according to readline configuration
+eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
+
+# bindkey "5C" forward-word
+# bindkey "5D" backward-word
 
 export EDITOR="vim"
 export GEM_OPEN_EDITOR="redcar"
