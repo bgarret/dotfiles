@@ -38,6 +38,13 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set number		" show line numbers
 
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+let ruby_fold=1
+
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '|': '|'}
 
 " Load matchit (% to bounce from do to end, etc.)
@@ -89,6 +96,10 @@ if has("autocmd")
 
   autocmd FileType python setlocal ai sw=2 sts=2 et
   autocmd FileType javascript setlocal ai sw=2 sts=2 et
+  autocmd FileType c setlocal ai ts=8 sw=8 sts=8 noet
+
+  " Makefiles need hard tabs
+  autocmd FileType make setlocal ai ts=8 sw=8 sts=8 noet
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
