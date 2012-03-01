@@ -23,8 +23,10 @@ set laststatus=2
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 
+" Command-T config
 cnoreabbrev e CommandT
 cnoreabbrev b CommandTBuffer
+set wildignore=vendor/ruby/**
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
