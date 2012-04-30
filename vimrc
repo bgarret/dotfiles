@@ -66,6 +66,16 @@ map <CR> o<Esc>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
+
+  " disable the mouse wheel, automatic pasting drives me crazy
+  map <MiddleMouse> <Nop>
+  imap <MiddleMouse> <Nop>
+  map <2-MiddleMouse> <Nop>
+  imap <2-MiddleMouse> <Nop>
+  map <3-MiddleMouse> <Nop>
+  imap <3-MiddleMouse> <Nop>
+  map <4-MiddleMouse> <Nop>
+  imap <4-MiddleMouse> <Nop>
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
