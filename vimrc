@@ -115,6 +115,7 @@ if has("autocmd")
   autocmd FileType python setlocal ai sw=2 sts=2 et
   autocmd FileType javascript setlocal ai sw=2 sts=2 et
   autocmd FileType c setlocal ai ts=8 sw=8 sts=8 noet
+  autocmd FileType php setlocal ai ts=2 sw=2 sts=2 noet
 
   " Makefiles need hard tabs
   autocmd FileType make setlocal ai ts=8 sw=8 sts=8 noet
