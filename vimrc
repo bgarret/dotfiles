@@ -63,6 +63,11 @@ inoremap <C-U> <C-G>u<C-U>
 map <NL> O<Esc>
 map <CR> o<Esc>
 
+if has('gui_running')
+  set guioptions-=m " remove the menu bar
+  set guioptions-=T " remove the tool bar
+endif
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
