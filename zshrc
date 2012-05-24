@@ -56,3 +56,6 @@ export GEM_OPEN_EDITOR="redcar"
 
 # Parse .rvmrc when opening a new terminal
 cd .
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin
