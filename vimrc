@@ -23,6 +23,9 @@ set laststatus=2
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 
+" write utf-8 without a BOM
+set nobomb
+
 " Command-T config
 cnoreabbrev e CommandT
 cnoreabbrev b CommandTBuffer
