@@ -34,7 +34,7 @@ PROMPT='
 %{$fg_bold[blue]%}$(prompt_char)%{$reset_color%}$(git_prompt_info) %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}$(collapse_pwd)%{$reset_color%}
 → '
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[green]%}|"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[green]%}|⭠ "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}|%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$fg_bold[green]%}✓%{$reset_color%}"
