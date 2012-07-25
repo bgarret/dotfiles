@@ -1,7 +1,7 @@
 <job>
 <script src="jslint-core.js" language="javascript"></script>
 <script language="javascript">
-/*global JSHINT load readline WScript */
+/*global JSLINT load readline WScript */
 
 var readSTDIN = function() {
     var line,
@@ -21,17 +21,26 @@ var readSTDIN = function() {
 };
 
 var body = readSTDIN() || arguments[0],
-    ok = JSHINT(body),
+    ok = JSLINT(body),
     i,
     error,
-    errorCount;
+    errorType,
+    nextError,
+    errorCount,
+    WARN = 'WARNING',
+    ERROR = 'ERROR';
 
 if (!ok) {
-    errorCount = JSHINT.errors.length;
+    errorCount = JSLINT.errors.length;
     for (i = 0; i < errorCount; i += 1) {
-        error = JSHINT.errors[i];
+        error = JSLINT.errors[i];
+        errorType = WARN;
         if (error && error.reason && error.reason.match(/^Stopping/) === null) {
-            WScript.echo([error.line, error.character, error.reason].join(":"));
+            // If jslint stops next, this was an actual error
+            if (nextError && nextError.reason && nextError.reason.match(/^Stopping/) !== null) {
+                errorType = ERROR;
+            }
+            WScript.echo([error.line, error.character, errorType, error.reason].join(":"));
         }
     }
 }
