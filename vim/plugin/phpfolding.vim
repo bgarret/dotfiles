@@ -166,10 +166,13 @@ function! s:PHPCustomFolds() " {{{
 	call s:PHPFoldPureBlock('function', s:FOLD_WITH_PHPDOC)
 
 	" Fold class properties with PhpDoc (var $foo = NULL;)
-	call s:PHPFoldProperties('^\s*var\s\$', ";", s:FOLD_WITH_PHPDOC, 1, 1)
+	call s:PHPFoldProperties('^\s*\(var\s\)\?\(\(public\|protected\|private\)\s\)\?\(static\s\)\?\$', ";", s:FOLD_WITH_PHPDOC, 1, 1)
 
 	" Fold class without PhpDoc (class foo {})
 	call s:PHPFoldPureBlock('^\s*\(abstract\s*\)\?class', s:FOLD_WITH_PHPDOC)
+	
+	" Fold interfaces without PhpDoc (interface foo {})
+	call s:PHPFoldPureBlock('^\s*interface', s:FOLD_WITH_PHPDOC)
 	
 	" Fold define()'s with their PhpDoc
 	call s:PHPFoldProperties('^\s*define\s*(', ";", s:FOLD_WITH_PHPDOC)
