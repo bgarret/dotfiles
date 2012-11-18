@@ -1,2 +1,5 @@
 vim/.netrwhist
 vim/*.cache
+*.o
+*.so
+Makefile
