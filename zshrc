@@ -63,3 +63,5 @@ cd .
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin
+
+source /usr/share/doc/pkgfile/command-not-found.zsh
