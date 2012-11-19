@@ -3,3 +3,4 @@ vim/*.cache
 *.o
 *.so
 Makefile
+mkmf.log
