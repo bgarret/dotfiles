@@ -19,6 +19,8 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+execute pathogen#infect()
+
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
@@ -26,10 +28,10 @@ set t_Co=256
 " write utf-8 without a BOM
 set nobomb
 
-" Command-T config
-cnoreabbrev e CommandT
-cnoreabbrev b CommandTBuffer
-set wildignore=vendor/ruby/**
+" Ctrl-P config
+cnoreabbrev e CtrlP
+cnoreabbrev b CtrlPBuffer
+set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/web/assets/*,*/app/cache/*
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -116,12 +118,14 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
-  autocmd FileType ruby,yaml setlocal ai sw=2 sts=2 et
+  autocmd FileType ruby setlocal ai sw=2 sts=2 et
 
   autocmd FileType python setlocal ai sw=2 sts=2 et
-  autocmd FileType javascript setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript setlocal ai sw=4 sts=4 et
   autocmd FileType c setlocal ai ts=8 sw=8 sts=8 noet
   autocmd FileType php setlocal ai ts=4 sw=4 sts=4 et
+  autocmd FileType yaml setlocal ai ts=4 sw=4 sts=4 et
+  autocmd FileType scss setlocal ai ts=4 sw=4 sts=4 et
 
   " Makefiles need hard tabs
   autocmd FileType make setlocal ai ts=8 sw=8 sts=8 noet
