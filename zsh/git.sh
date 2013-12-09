@@ -5,14 +5,14 @@ function git_prompt_info() {
 }
 
 parse_git_dirty () {
-  gitstat=$(git status 2>/dev/null | grep '\(# Untracked\|# Changes\|# Changed but not updated:\)')
+  gitstat=$(git status 2>/dev/null | grep '\(Untracked\|Changes\|Changed but not updated:\)')
 
-  if [[ $(echo ${gitstat} | grep -c "^# Changes") > 0 ]]; then
+  if [[ $(echo ${gitstat} | grep -c "^Changes") > 0 ]]; then
 	echo -n "$ZSH_THEME_GIT_PROMPT_DIRTY"
 	return
   fi
 
-  if [[ $(echo ${gitstat} | grep -c "^\(# Untracked files:\)$") > 0 ]]; then
+  if [[ $(echo ${gitstat} | grep -c "^\(Untracked files:\)$") > 0 ]]; then
 	echo -n "$ZSH_THEME_GIT_PROMPT_UNTRACKED"
 	return
   fi
