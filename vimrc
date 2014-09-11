@@ -31,7 +31,11 @@ set nobomb
 " Ctrl-P config
 cnoreabbrev e CtrlP
 cnoreabbrev b CtrlPBuffer
-set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/web/assets/*,*/app/cache/*
+set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/app/cache/*,export
+
+" Per-project settings
+set exrc
+set secure
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
