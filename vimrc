@@ -126,6 +126,8 @@ if has("autocmd")
   autocmd FileType php setlocal ai ts=4 sw=4 sts=4 et
   autocmd FileType yaml setlocal ai ts=4 sw=4 sts=4 et
   autocmd FileType scss setlocal ai ts=4 sw=4 sts=4 et
+  autocmd FileType go setlocal ai ts=4 sw=4 sts=4 noet
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
   " Makefiles need hard tabs
   autocmd FileType make setlocal ai ts=8 sw=8 sts=8 noet
