@@ -34,6 +34,19 @@ function prompt_char {
     echo '★'
 }
 
+function set_term_title {
+    print -Pn "\033]0;$1\a"
+}
+
+function chpwd {
+    set_term_title %~
+}
+
+function ssh {
+    set_term_title $1
+    command ssh $@
+}
+
 PROMPT='
 %{$fg_bold[blue]%}$(prompt_char)%{$reset_color%} %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)
 ↳ '
