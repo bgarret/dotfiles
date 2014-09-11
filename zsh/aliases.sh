@@ -15,3 +15,5 @@ alias ls="ls --color=auto"
 
 alias sudo="sudo -E"
 alias -- +="sudo"
+
+alias xclip="xclip -selection c"
