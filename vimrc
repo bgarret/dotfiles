@@ -31,7 +31,7 @@ set nobomb
 " Ctrl-P config
 cnoreabbrev e CtrlP
 cnoreabbrev b CtrlPBuffer
-set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/app/cache/*,export
+set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/app/cache/*,export,*/Zend/*
 
 " Per-project settings
 set exrc
