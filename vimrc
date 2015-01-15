@@ -75,9 +75,6 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-map <NL> O<Esc>
-map <CR> o<Esc>
-
 if has('gui_running')
   set guioptions-=m " remove the menu bar
   set guioptions-=T " remove the tool bar
