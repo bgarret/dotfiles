@@ -76,6 +76,7 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 if has('gui_running')
+  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
   set guioptions-=m " remove the menu bar
   set guioptions-=T " remove the tool bar
 endif
