@@ -32,6 +32,7 @@ set nobomb
 cnoreabbrev e CtrlP
 cnoreabbrev b CtrlPBuffer
 set wildignore+=vendor/ruby/**,vendor,cov,docs,tmp,*/app/cache/*,export,*/Zend/*
+let g:ctrlp_max_files=0
 
 " Per-project settings
 set exrc
