@@ -34,6 +34,18 @@ function prompt_char {
     echo '★'
 }
 
+function kernel_mismatch {
+  # e.g. linux 4.18.5.arch1-1
+  installed=$(pacman --query linux | grep -o -P '\d\d?.\d\d?.\d\d?')
+
+  # e.g. 4.18.4-arch1-1-ARCH
+  running=$(uname --kernel-release | grep -o -P  '\d\d?.\d\d?.\d\d?')
+
+  if [[ "$running" != "$installed" ]]; then
+    echo "RESTART! "
+  fi
+}
+
 function set_term_title {
     print -Pn "\033]0;$1\a"
 }
@@ -49,7 +61,7 @@ function ssh {
 
 PROMPT='
 %{$fg_bold[blue]%}$(prompt_char)%{$reset_color%} %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)
-↳ '
+%{$fg_bold[red]%}$(kernel_mismatch)%{$reset_color%}↳ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%}"
